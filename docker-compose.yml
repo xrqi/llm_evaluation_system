@@ -132,6 +132,26 @@ services:
       - worker
     command: celery -A app.core.celery_app flower --port=5555 --broker=redis://redis:6379/0
 
+  # Frontend (React) - Development
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/package.json:/app/package.json
+    environment:
+      - REACT_APP_API_URL=/api/v1
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    stdin_open: true
+    tty: true
+
 volumes:
   postgres_data:
   redis_data:
