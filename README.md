@@ -1,6 +1,8 @@
 # LLM评测系统 (LLM Evaluation System)
 
 企业级AI测试与评测系统MVP版本，支持LLM评测集管理、自动化评测执行、质量门禁等功能。
+<img width="2560" height="1271" alt="image" src="https://github.com/user-attachments/assets/33f9a9d1-534e-430e-99e9-53d03a2ea817" />
+
 
 ## 系统架构
 
